@@ -1,13 +1,10 @@
 export class Negociacao {
-    constructor(_data, 
-    // public readonly data elimina a necessidade de geters e não permite modificar
-    _quantidade, _valor) {
+    constructor(_data, _quantidade, _valor) {
         this._data = _data;
         this._quantidade = _quantidade;
         this._valor = _valor;
     }
     get data() {
-        // programação defensiva = retornar uma variavel ao inves da referencia real, para não haver alterações por meio de métodos especificos de tipos de variavel
         const data = new Date(this._data.getTime());
         return data;
     }
@@ -19,5 +16,13 @@ export class Negociacao {
     }
     get volume() {
         return this._quantidade * this._valor;
+    }
+    static criaDe(dataString, quantidadeString, valorString) {
+        const exp = /-/g;
+        const date = new Date(dataString.replace(exp, ','));
+        const quantidade = parseInt(quantidadeString);
+        const valor = parseFloat(valorString);
+        ;
+        return new Negociacao(date, quantidade, valor);
     }
 }
