@@ -1,4 +1,5 @@
 import { NegociacaoController } from "./controllers/negociacao-controller.js";
+
 const controller = new NegociacaoController();
 const form = document.querySelector('.form');
 if (form) {
@@ -6,7 +7,16 @@ if (form) {
         event.preventDefault();
         controller.adiciona();
     });
-}
-else {
+} else {
     throw Error('Não foi possível inicializar a aplicação. Verifique se o form existe.');
 }
+
+const botaoImporta = document.querySelector('#botao-importa');
+if (botaoImporta) {
+    botaoImporta.addEventListener('click', () => {
+        controller.importaDados()
+    });
+} else {
+    throw Error('Não foi possível encontrar o botão importa.');
+}
+
