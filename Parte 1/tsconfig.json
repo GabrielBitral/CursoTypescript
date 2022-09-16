@@ -6,7 +6,9 @@
         "noImplicitAny": true,
         "removeComments": true,
         "strictNullChecks": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "sourceMap": false
+        /* "sourceMap": true // gera arquivos .map para depurar no navegador(CTRL P) */
     },
     "include": ["app/src/**/*"]
 }
